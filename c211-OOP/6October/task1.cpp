@@ -135,4 +135,4 @@ int main() {
     return 0;
 }
 
-
+// this code (task1) is written using ai, because i accidentally deleted my code
