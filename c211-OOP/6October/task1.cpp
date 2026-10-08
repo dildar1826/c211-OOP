@@ -36,7 +36,7 @@ struct Box {
    accepting a Box object as a parameter in its function 
    and accessing its data members.
 */
-struct Test {
+/*struct Test {
     int multiplier;
 
     int calculateScaledArea(Box b) {
@@ -65,4 +65,74 @@ int main() {
     cout << "Scaled Area: " << result << endl; // (5 * 4) * 3 = 60
 
     return 0;
+}*/
+//======================= TASK #1===========================
+class Rectangle {
+private:
+    int length;
+    int width;
+
+public:
+    // Setter function with validation (must be greater than zero)
+    void setLength(int l) {
+        if (l > 0) 
+            length = l;
+        else {
+            cout << "Invalid length! Must be greater than zero." << endl;
+            length = 0;
+        }
+    }
+
+    void setWidth(int w) {
+        if (w > 0) {
+            width = w;
+        } else {
+            cout << "Invalid width! Must be greater than zero." << endl;
+            width = 0;
+        }
+    }
+
+    // Getter functions
+    int getLength() {
+        return length;
+    }
+
+    int getWidth() {
+        return width;
+    }
+
+    // Calculate area function
+    int calculateArea() {
+        return length * width;
+    }
+
+    // Calculate perimeter function
+    int calculatePerimeter() {
+        return 2 * (length + width);
+    }
+
+    // Predicate function to check if it's a square
+    bool isSquare() {
+        return length == width && length > 0;
+    }
+};
+
+int main() {
+    Rectangle rect;
+
+    rect.setLength(10);
+    rect.setWidth(10);
+
+    cout << "Area: " << rect.calculateArea() << endl;
+    cout << "Perimeter: " << rect.calculatePerimeter()<< endl;
+
+    if (rect.isSquare()) {
+        cout << "The rectangle is a square." << endl;
+    } else {
+        cout << "The rectangle is not a square." << endl;
+    }
+
+    return 0;
 }
+
+
