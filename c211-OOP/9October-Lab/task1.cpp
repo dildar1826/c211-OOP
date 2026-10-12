@@ -10,12 +10,21 @@ public:
 		currentTempC = 22.3;
 		targetTempC = 22.0;
 		 // type error of -->  mode[5] = "off";
+		strcpy(mode, "off");
 		
 	}
-	smartThermostat(double startTempC, const char * startMode) : smartThermostat() { // arrray probelm
-		startMode = "off";
+	smartThermostat(double startTempC, const char * startMode) : smartThermostat() { //array problem......
+		myStrcpy(mode, startMode);
 		startTempC = 22.0;
 
+	}
+	void myStrcpy(char * destination, const char * source) {
+		while (*source != '\0') {
+			*destination = *source;
+			destination++;
+			source++;
+		}
+		*destination = '\0'; // Null-terminate the destination string
 	}
 	void displayStatus() {
 		
@@ -32,8 +41,12 @@ public:
 
 		return currentTempF;
 	}
-	bool setMode(const char * newMode) { // what the hell is const char*
-		if(newMode == "heat" || newMode ==)// to be continued................
+	bool setMode(const char * newMode) { 
+		if(newMode == "heat" || newMode == "cool" || newMode == "off") {
+			myStrcpy(mode, newMode);
+			return true;
+		}
+		return false;
 	}
 };
 /*class Rectangle {
