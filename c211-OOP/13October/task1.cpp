@@ -6,7 +6,7 @@ class Array
     int * data; // pointer to the array of type int
     int capacity;
 
-    int isValidIndex(int index){
+    bool isValidIndex(int index){
         return (index >= 0 && index < capacity);
     }
     public:
